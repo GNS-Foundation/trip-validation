@@ -1,0 +1,9 @@
+# Pinned to the known-good versions used for the recorded results.
+# Relax the upper bounds only after re-running the increment scripts.
+h3==4.5.0
+numpy==2.5.3
+matplotlib==3.11.2
+shapely==2.2.0
+# Field 15 signing test vectors (test-vectors/):
+cbor2==6.1.5
+cryptography==50.0.1
