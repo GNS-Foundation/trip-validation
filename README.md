@@ -47,6 +47,9 @@ increment1_sanity.py      real GeoLife through the pipeline; cohort/gap sanity, 
 increment2_alpha.py       alpha two ways: Section 7.1 literal + DFA robust cross-check
 increment3_roc.py         synthetic adversaries through the same pipeline; AUC
 increment4_roc_recal.py   ROC curves, recalibrated band, drift adversary, plots
+increment5_structural.py  reproduces the three dataset-independent structural
+                          results (white spectrum, R2 ceiling, pipeline bias);
+                          no GeoLife needed
 make_serhii_set.py        the 64-cell NL worked example (polygon-verified)
 scripts/fetch_data.sh     downloads GeoLife + NL polygon (data is gitignored)
 results/                  committed artifacts: the two plots + the worked example
@@ -65,6 +68,13 @@ python increment2_alpha.py            # alpha two ways
 python increment3_roc.py              # adversaries + AUC
 python increment4_roc_recal.py        # ROC curves + recalibration -> results/*.png
 python make_serhii_set.py             # -> results/trip_synthetic_example.json
+```
+
+`increment5_structural.py` needs no GeoLife and can be run on its own:
+
+```bash
+pip install -r requirements.txt
+python increment5_structural.py       # white spectrum, R2 ceiling, pipeline bias
 ```
 
 ## Honesty rails
@@ -88,6 +98,9 @@ python make_serhii_set.py             # -> results/trip_synthetic_example.json
   R² ceiling, the standard-error window bound) and the worked example
   (`make_serhii_set.py`): Serhii Nikolaichuk. These are reported from
   numerical simulation and are stated as such in the draft.
+  `increment5_structural.py` independently reproduces them against the
+  published estimator (Results 1–2 cleanly; Result 3's window-length bias
+  cleanly, the H3-resolution direction condition-dependent as the draft states).
 - `test-vectors/`: Field 15 (calibration-provenance) signing vectors.
 
 ## Data provenance
